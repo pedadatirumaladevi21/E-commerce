@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>E-Commerce</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .product-card {
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-img-top {
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,7 +48,7 @@
 
       <a href="./cart.html" class="btn btn-outline-light position-relative me-3">
         Cart
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
           0
         </span>
       </a>
@@ -47,6 +58,7 @@
     </div>
   </div>
 </nav>
+
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -67,221 +79,228 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
-  <br>
-  <h2 class=" my-4 fs-2 text-center" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 500;">Ethnic Wear for Men and Women</h2>
-  <div class="container my-4">
-    <div class="d-flex flex-row flex-wrap justify-content-start gap-4">
-      
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/klosia kurta set.webp" class="card-img-top" alt="Klosia Kurta" height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Klosia Kurta</h5>
-          
-        </div>
+</div>
+
+<br>
+<h2 class="my-4 fs-2 text-center" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 500;">Ethnic Wear for Men and Women</h2>
+<div class="container my-4">
+  <div class="d-flex flex-row flex-wrap justify-content-start gap-4">
+    
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/klosia kurta set.webp" class="card-img-top" alt="Klosia Kurta" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Klosia Kurta</h5>
+        <p class="card-text">₹1,299</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Klosia Kurta', 1299, './Images/klosia kurta set.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('klosia-kurta')">View Details</button>
       </div>
-  
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/cut kurta set.webp" class="card-img-top" alt="Cut Kurta Dress"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Cut kurta</h5>
-          
-        </div>
+    </div>
+
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/cut kurta set.webp" class="card-img-top" alt="Cut Kurta Dress" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Cut Kurta</h5>
+        <p class="card-text">₹1,499</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Cut Kurta', 1499, './Images/cut kurta set.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('cut-kurta')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Anarkali.jpg" class="card-img-top" alt="Anarkali"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Anarkali</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Anarkali.jpg" class="card-img-top" alt="Anarkali" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Anarkali</h5>
+        <p class="card-text">₹1,799</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Anarkali', 1799, './Images/Anarkali.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('anarkali')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Punjabi Dress.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Punjabi Set</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Punjabi Dress.webp" class="card-img-top" alt="Punjabi Set" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Punjabi Set</h5>
+        <p class="card-text">₹1,599</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Punjabi Set', 1599, './Images/Punjabi Dress.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('punjabi-set')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Crop Top.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Crop Top</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Crop Top.webp" class="card-img-top" alt="Crop Top" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Crop Top</h5>
+        <p class="card-text">₹899</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Crop Top', 899, './Images/Crop Top.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('crop-top')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Palazzo.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Palazzo Set</h5>
-         
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Palazzo.jpg" class="card-img-top" alt="Palazzo Set" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Palazzo Set</h5>
+        <p class="card-text">₹1,399</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Palazzo Set', 1399, './Images/Palazzo.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('palazzo-set')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/white-kurta-pajama.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Kurta Pajama</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/white-kurta-pajama.jpg" class="card-img-top" alt="Kurta Pajama" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Kurta Pajama</h5>
+        <p class="card-text">₹1,299</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Kurta Pajama', 1299, './Images/white-kurta-pajama.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('kurta-pajama')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Short Kurta.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Short Kurta</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Short Kurta.jpg" class="card-img-top" alt="Short Kurta" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Short Kurta</h5>
+        <p class="card-text">₹999</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Short Kurta', 999, './Images/Short Kurta.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('short-kurta')">View Details</button>
       </div>
+    </div>
 
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/silk Jacket set.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Silk Jacket Set</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/silk Jacket set.webp" class="card-img-top" alt="Silk Jacket Set" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Silk Jacket Set</h5>
+        <p class="card-text">₹2,499</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Silk Jacket Set', 2499, './Images/silk Jacket set.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('silk-jacket-set')">View Details</button>
       </div>
+    </div>
 
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/salwar Kurta.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Salwar Kurta</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/salwar Kurta.jpg" class="card-img-top" alt="Salwar Kurta" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Salwar Kurta</h5>
+        <p class="card-text">₹1,699</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Salwar Kurta', 1699, './Images/salwar Kurta.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('salwar-kurta')">View Details</button>
       </div>
+    </div>
 
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Kora Dhoti.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Kora Dhoti</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Kora Dhoti.jpg" class="card-img-top" alt="Kora Dhoti" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Kora Dhoti</h5>
+        <p class="card-text">₹1,199</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Kora Dhoti', 1199, './Images/Kora Dhoti.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('kora-dhoti')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Bandhgala Suit.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Bandhgala Suit</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Bandhgala Suit.jpg" class="card-img-top" alt="Bandhgala Suit" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Bandhgala Suit</h5>
+        <p class="card-text">₹2,999</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Bandhgala Suit', 2999, './Images/Bandhgala Suit.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('bandhgala-suit')">View Details</button>
       </div>
-  
     </div>
   </div>
-  <br>
-  <h2 class=" my-4 fs-2 text-center" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 500;">Modren Wear for Men and Women</h2>
-  <div class="container my-4">
-    <div class="d-flex flex-row flex-wrap justify-content-start gap-4">
-      
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/klosia kurta set.webp" class="card-img-top" alt="Klosia Kurta" height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Klosia Kurta</h5>
-          
-        </div>
+</div>
+
+<br>
+<h2 class="my-4 fs-2 text-center" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 500;">Modern Wear for Men and Women</h2>
+<div class="container my-4">
+  <div class="d-flex flex-row flex-wrap justify-content-start gap-4">
+    
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/formal.webp" class="card-img-top" alt="Formal Dress" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Formal Dress</h5>
+        <p class="card-text">₹1,599</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Formal Dress', 1599, './Images/formal.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('formal-dress')">View Details</button>
       </div>
-  
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/cut kurta set.webp" class="card-img-top" alt="Cut Kurta Dress"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Cut kurta</h5>
-          
-        </div>
+    </div>
+
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/skirt top.webp" class="card-img-top" alt="Top & Skirt" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Top & Skirt</h5>
+        <p class="card-text">₹1,299</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Top & Skirt', 1299, './Images/skirt top.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('top-skirt')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Anarkali.jpg" class="card-img-top" alt="Anarkali"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Anarkali</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Maxi frock.jpg" class="card-img-top" alt="Maxi Frock" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Maxi Frock</h5>
+        <p class="card-text">₹1,399</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Maxi Frock', 1399, './Images/Maxi frock.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('maxi-frock')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Punjabi Dress.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Punjabi Set</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Flare Dress.webp" class="card-img-top" alt="Flare Dress" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Flare Dress</h5>
+        <p class="card-text">₹1,499</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Flare Dress', 1499, './Images/Flare Dress.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('flare-dress')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Crop Top.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Crop Top</h5>
-          
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/Blue Denim.jpg" class="card-img-top" alt="Blue Denim" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Blue Denim</h5>
+        <p class="card-text">₹1,199</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Blue Denim', 1199, './Images/Blue Denim.jpg')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('blue-denim')">View Details</button>
       </div>
+    </div>
 
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Palazzo.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Palazzo Set</h5>
-         
-        </div>
+    <div class="card product-card" style="width: 12rem;">
+      <img src="./Images/jeansgirls.webp" class="card-img-top" alt="Jeans" height="200">
+      <div class="card-body">
+        <h5 class="card-title">Jeans</h5>
+        <p class="card-text">₹999</p>
+        <button class="btn btn-primary btn-sm" onclick="addToCart('Jeans', 999, './Images/jeansgirls.webp')">Add to Cart</button>
+        <button class="btn btn-outline-secondary btn-sm mt-1" onclick="viewDetails('jeans')">View Details</button>
       </div>
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/formal.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Formal Dress</h5>
-          
-        </div>
-      </div>
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/skirt top.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Top & Skirt</h5>
-          
-        </div>
-      </div>
-
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Maxi frock.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Maxi Frock</h5>
-          
-        </div>
-      </div>
-
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Flare Dress.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Flare Dress</h5>
-          
-        </div>
-      </div>
-
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/Blue Denim.jpg" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Blue Denim</h5>
-          
-        </div>
-      </div>
-
-      <div class="card" style="width: 12rem;">
-        <img src="./Images/jeansgirls.webp" class="card-img-top" alt="punjabi"  height="200">
-        <div class="card-body">
-          <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; font-weight: 400;">Jeans</h5>
-          
-        </div>
-      </div>
-  
     </div>
   </div>
-  
-  
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Initialize cart count on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+  });
+
+  // Cart functions
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, image });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    
+    // Show added notification
+    alert(`${name} has been added to your cart!`);
+  }
+
+  function viewDetails(productId) {
+    window.location.href = `product.html?id=${productId}`;
+  }
+
+  function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+  }
+</script>
 </body>
 </html>
